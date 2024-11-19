@@ -1,0 +1,34 @@
+### Get all attendees
+GET http://localhost:3000/event
+
+### Get single attendee
+GET http://localhost:3000/event/673977cf67d3d8b56e2b4b73
+
+### Create new attendee
+POST http://localhost:3000/event
+Content-Type: application/json
+
+{
+  "eventId": "event127",
+  "name": "Tech Conference 2024",
+  "description": "A conference about the latest in tech.",
+  "date": "2024-12-01T10:00:00Z",
+  "location": "Convention Center",
+  "organizerId": "organizer456",
+  "capacity": 500,
+  "attendees": [],
+  "createdAt": "2024-11-01T12:00:00Z",
+  "updatedAt": "2024-11-10T15:00:00Z"
+}
+
+### Put method
+PUT http://localhost:3000/event/673977cf67d3d8b56e2b4b73
+Content-Type: application/json
+
+{
+  "capacity": 151,
+  "location": "Convention Center 3"
+}
+
+### Delete method
+DELETE http://localhost:3000/event/673977cf67d3d8b56e2b4b73

@@ -1,0 +1,34 @@
+{
+  "name": "event-management-system",
+  "version": "1.0.0",
+  "description": "Event management system project for BYU-I CSE341 - Week3-4",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --env-file='.env' --watch app.js",
+    "swagger": "node ./swagger/swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wilsonBYU/events-management-system.git"
+  },
+  "keywords": [
+    "event",
+    "management",
+    "system"
+  ],
+  "author": "Wilson Romero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilsonBYU/events-management-system/issues"
+  },
+  "homepage": "https://github.com/wilsonBYU/events-management-system#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-validator": "^7.2.0",
+    "mongodb": "^6.10.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

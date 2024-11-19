@@ -1,0 +1,341 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Event Management System Api",
+    "description": "This is the week 3-4 assignment for BYU-I CSE341",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/attendees/": {
+      "get": {
+        "description": "Returns all the attendees available in the database",
+        "responses": {
+          "200": {
+            "description": "All the attendees retrieved successfully"
+          },
+          "404": {
+            "description": "No attendees found in the database"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      },
+      "post": {
+        "description": "Inserts a new attendee to the database",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Json containing attendee data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "attendeeId": {
+                  "type": "string",
+                  "example": "attendee799"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Jonathan Davis"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "john.doe@example.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "325-456-7890"
+                },
+                "eventId": {
+                  "type": "string",
+                  "example": ""
+                },
+                "registrationDate": {
+                  "type": "string",
+                  "example": "2024-11-05T09:00:00Z"
+                },
+                "checkedIn": {
+                  "type": "boolean",
+                  "example": false
+                },
+                " ": {
+                  "type": "string",
+                  "example": "2024-11-05T09:00:00Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-11-05T09:00:00Z"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New attendee created successfully"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      }
+    },
+    "/attendees/{attendee_id}": {
+      "get": {
+        "description": "Returns a single attendee with the given ID",
+        "parameters": [
+          {
+            "name": "attendee_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Attendee with the given id retrieval successfully"
+          },
+          "404": {
+            "description": "Attendee with the given id not found"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a single attendee with the given ID",
+        "parameters": [
+          {
+            "name": "attendee_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Json containing fields to update",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Jonathan Browns"
+                },
+                "checkedIn": {
+                  "type": "boolean",
+                  "example": false
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Attendee updated successfuly"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a single attendee with the given ID",
+        "parameters": [
+          {
+            "name": "attendee_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Attendee deleted successfully"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      }
+    },
+    "/event/": {
+      "get": {
+        "description": "Returns all the events available in the database",
+        "responses": {
+          "200": {
+            "description": "All the events retrieved successfully"
+          },
+          "404": {
+            "description": "No events found in the database"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      },
+      "post": {
+        "description": "Insert a new event into the database",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Json containing event data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "eventId": {
+                  "type": "string",
+                  "example": "event127"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Tech Conference 2024"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "A conference about the latest in tech."
+                },
+                "date": {
+                  "type": "string",
+                  "example": "2024-12-01T10:00:00Z"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Convention Center"
+                },
+                "organizerId": {
+                  "type": "string",
+                  "example": "organizer456"
+                },
+                "capacity": {
+                  "type": "number",
+                  "example": 500
+                },
+                "attendees": {
+                  "type": "array",
+                  "example": [],
+                  "items": {}
+                },
+                " ": {
+                  "type": "string",
+                  "example": "2024-11-01T12:00:00Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "example": "2024-11-10T15:00:00Z"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Event created succesfully"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      }
+    },
+    "/event/{event_id}": {
+      "get": {
+        "description": "Returns an event with the given ID",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Events with the given id retrieved successfully"
+          },
+          "404": {
+            "description": "Events with the given id not found"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      },
+      "put": {
+        "description": "Update the event with the given id",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Body with modified fields",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "capacity": {
+                  "type": "number",
+                  "example": 151
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Convention Center 3"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Events with the given id updated successfully"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the event with the given id",
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Event with the given id deleted successfully"
+          },
+          "500": {
+            "description": "Internal server error (databse or node)"
+          }
+        }
+      }
+    }
+  }
+}

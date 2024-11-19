@@ -1,0 +1,33 @@
+### Get all attendees
+GET http://localhost:3000/attendees
+
+### Get single attendee
+GET http://localhost:3000/attendees/673c1458dee955600d80da8c
+
+### Create new attendee
+POST http://localhost:3000/attendees
+Content-Type: application/json
+
+  {
+    "attendeeId": "attendee799",
+    "name": "Jonathan Davis",
+    "email": "john.doe@example.com",
+    "phone": "325-456-7890",
+    "eventId": "",
+    "registrationDate": "2024-11-05T09:00:00Z",
+    "checkedIn": false,
+    "createdAt": "2024-11-05T09:00:00Z",
+    "updatedAt": "2024-11-05T09:00:00Z"
+  }
+
+### Put method
+PUT http://localhost:3000/attendees/673c1458dee955600d80da8c
+Content-Type: application/json
+
+{
+  "name": "Jonathan Browns",
+  "checkedIn": false
+}
+
+### Delete method
+DELETE http://localhost:3000/attendees/673c1458dee955600d80da8c
