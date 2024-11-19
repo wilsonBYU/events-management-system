@@ -13,7 +13,7 @@ attendeeController.getAll = async (req, res) => {
   */
   try {
     const result = await db.get("attendees")
-    if (result.isEmpty()) res.status(200).json(result)
+    if (result.length > 0) res.status(200).json(result)
     else res.status(404).json({error: "no data found"})
   } catch (e) {
     throw({code: 500, message: e.message})
