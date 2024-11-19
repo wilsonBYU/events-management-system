@@ -11,6 +11,6 @@ router.get("/", async (req, res) => {
     next()
   }, swaggerUi.serveFiles(swaggerDocument, {}), swaggerUi.setup())
   router.use("/attendees", require("./attendee"))
-  router.use("/event", require("./event"))
+  router.use("/events", require("./event"))
 
 module.exports = router
