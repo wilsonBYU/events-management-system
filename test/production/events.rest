@@ -1,0 +1,34 @@
+### Get all attendees
+GET https://events-management-system-w0nd.onrender.com/events
+
+### Get single attendee
+GET https://events-management-system-w0nd.onrender.com/events/673d10325f62a697d7cc2873
+
+### Create new attendee
+POST https://events-management-system-w0nd.onrender.com/events
+Content-Type: application/json
+
+{
+  "eventId": "event100",
+  "name": "Tech Conference 2025",
+  "description": "A conference about the latest in tech.",
+  "date": "2024-12-01T10:00:00Z",
+  "location": "Convention Center",
+  "organizerId": "organizer456",
+  "capacity": 500,
+  "attendees": [],
+  "createdAt": "2024-11-01T12:00:00Z",
+  "updatedAt": "2024-11-10T15:00:00Z"
+}
+
+### Put method
+PUT https://events-management-system-w0nd.onrender.com/events/673d10325f62a697d7cc2873
+Content-Type: application/json
+
+{
+  "capacity": 401,
+  "location": "Convention Center 5"
+}
+
+### Delete method
+DELETE https://events-management-system-w0nd.onrender.com/events/673d10325f62a697d7cc2873

@@ -1,0 +1,33 @@
+### Get all attendees
+GET https://events-management-system-w0nd.onrender.com/attendees
+
+### Get single attendee
+GET https://events-management-system-w0nd.onrender.com/attendees/673d0fda5f62a697d7cc2872
+
+### Create new attendee
+POST https://events-management-system-w0nd.onrender.com/attendees
+Content-Type: application/json
+
+  {
+    "attendeeId": "attendee954",
+    "name": "Jonathan Davis",
+    "email": "john.doe@example.com",
+    "phone": "325-456-7890",
+    "eventId": "",
+    "registrationDate": "2024-11-05T09:00:00Z",
+    "checkedIn": true,
+    "createdAt": "2024-11-05T09:00:00Z",
+    "updatedAt": "2024-11-05T09:00:00Z"
+  }
+
+### Put method
+PUT https://events-management-system-w0nd.onrender.com/attendees/673d0fda5f62a697d7cc2872
+Content-Type: application/json
+
+{
+  "name": "Jonathan Browns",
+  "checkedIn": false
+}
+
+### Delete method
+DELETE https://events-management-system-w0nd.onrender.com/attendees/673d0fda5f62a697d7cc2872
