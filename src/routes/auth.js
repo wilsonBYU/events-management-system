@@ -6,7 +6,7 @@ const GoogleStrategy = require("passport-google-oauth20")
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_SECRET,
-    callbackURL: "/auth/google/callback"
+    callbackURL: process.env.GOOGLE_REDIRECT_URL
   },
   function(accessToken, refreshToken, profile, cb){
     return cb(null, profile)
