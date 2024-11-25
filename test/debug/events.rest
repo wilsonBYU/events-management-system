@@ -1,11 +1,11 @@
 ### Get all attendees
-GET http://localhost:3000/event
+GET http://localhost:3000/events
 
 ### Get single attendee
-GET http://localhost:3000/event/673977cf67d3d8b56e2b4b73
+GET http://localhost:3000/events/673977a667d3d8b56e2b4b72
 
 ### Create new attendee
-POST http://localhost:3000/event
+POST http://localhost:3000/events
 Content-Type: application/json
 
 {
@@ -22,13 +22,20 @@ Content-Type: application/json
 }
 
 ### Put method
-PUT http://localhost:3000/event/673977cf67d3d8b56e2b4b73
+PUT http://localhost:3000/events/6739777567d3d8b56e2b4b70
 Content-Type: application/json
 
 {
   "capacity": 151,
-  "location": "Convention Center 3"
+  "location": "Convention Center 18"
 }
 
 ### Delete method
-DELETE http://localhost:3000/event/673977cf67d3d8b56e2b4b73
+DELETE http://localhost:3000/events/673977cf67d3d8b56e2b4b73
+
+##################################
+##### Get attendees by event #####
+##################################
+  
+### Get event attendees
+GET http://localhost:3000/events/673977a667d3d8b56e2b4b72/attendees

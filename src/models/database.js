@@ -10,9 +10,10 @@ class Db {
     try {
       await this.client.connect().then(console.log("DB Connection established"))
     } catch (e){
-      throw({code: 500, message: e.message})
+      console.error(e)
+      
     } finally {
-      this.client.close()
+      await this.client.close()
     }
   }
 
@@ -20,7 +21,8 @@ class Db {
     try {
       await this.client.connect()
     } catch(e){
-      throw({code: 500, message: e.message})
+      console.error(e)
+      
     }
   }
 
@@ -32,9 +34,10 @@ class Db {
       const result = await query.toArray()
       return result
     } catch(e) {
-      throw({code: 500, message: e.message})
+      console.error(e)
+      
     } finally {
-      this.client.close()
+      await this.client.close()
     }
   }
 
@@ -45,9 +48,10 @@ class Db {
       let result = await collection.insertOne(data)
       return result
     } catch(e){
-      throw({code: 500, message: e.message})
+      console.error(e)
+      
     } finally {
-      this.client.close()
+      await this.client.close()
     }
   }
 
@@ -55,12 +59,13 @@ class Db {
     try {
       await this.connect()
       const collection = this.client.db("eventdb").collection(collName)
-      const result = await collection.updateOne(qry, { $set: fields})
+      const result = await collection.updateOne(qry, fields)
       return result
     } catch(e){
-      throw({code: 500, message: e.message})
+      console.error(e)
+      
     } finally {
-      this.client.close()
+      await this.client.close()
     }
   }
 
@@ -71,9 +76,10 @@ class Db {
       const result = await collection.deleteOne(qry)
       return result
     } catch(e) {
-      throw({code: 500, message: e.message})
+      console.error(e)
+      
     } finally {
-      this.client.close()
+      await this.client.close()
     }
   }
 

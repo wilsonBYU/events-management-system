@@ -1,8 +1,12 @@
+###################################
+######  ATTENDEE ENDPOINTS   ######
+###################################
+
 ### Get all attendees
 GET http://localhost:3000/attendees
 
 ### Get single attendee
-GET http://localhost:3000/attendees/673c1458dee955600d80da8c
+GET http://localhost:3000/attendees/6736db1a00017b18d625f4be
 
 ### Create new attendee
 POST http://localhost:3000/attendees
@@ -21,13 +25,31 @@ Content-Type: application/json
   }
 
 ### Put method
-PUT http://localhost:3000/attendees/673c1458dee955600d80da8c
+PUT http://localhost:3000/attendees/673c174f4dd8cf47537b3a6a
 Content-Type: application/json
 
 {
-  "name": "Jonathan Browns",
-  "checkedIn": false
+  "attendeeId": "attendee800"
 }
 
 ### Delete method
 DELETE http://localhost:3000/attendees/673c1458dee955600d80da8c
+
+
+#############################################
+######  ATTENDEE RELATION ENDPOINTS   ######
+#############################################
+
+### Get attendee events
+GET http://localhost:3000/attendees/673c17434dd8cf47537b3a69/events
+
+### Put attendee events method
+PUT http://localhost:3000/attendees/6736db1a00017b18d625f4be/events
+Content-Type: application/json
+
+{
+  "eventId": "event125"  
+}
+
+### Delete events method
+DELETE  http://localhost:3000/attendees/6736db1a00017b18d625f4be/events/event123

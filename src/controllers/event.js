@@ -81,7 +81,7 @@ eventController.update = async (req, res) => {
       #swagger.responses[500] = { description: 'Internal server error (databse or node)' }  
     */
   try {
-    const result = await db.put("events", {_id: new ObjectId(req.params.event_id)}, req.body)
+    const result = await db.put("events", {_id: new ObjectId(req.params.event_id)}, {$set: req.body})
     res.status(204).json(result)
   } catch(e) {
     throw({code: 500, message: e.message})
@@ -99,6 +99,16 @@ eventController.delete = async (req, res) => {
     res.status(204).json(result)
   } catch(e) {
     throw({code: 500, message: e.message})
+  }
+}
+
+eventController.getAttendees = async (req, res) => {
+  try {
+    const event = await db.get("events", { _id: new ObjectId(req.params.event_id)})
+    const result = await db.get("attendees", { eventId: event[0].eventId })
+    res.status(200).json(result)
+  } catch (e) {
+    throw({code: 500, message: e.message});
   }
 }
 

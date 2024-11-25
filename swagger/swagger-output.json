@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Event Management System Api",
-    "description": "This is the week 3-4 assignment for BYU-I CSE341",
+    "description": "This is the week 3-4 assignment for BYU-I CSE341, make sure you are authenticated first using the endpoint: /auth/google",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -75,7 +75,7 @@
                   "type": "boolean",
                   "example": false
                 },
-                " ": {
+                "createdAt": {
                   "type": "string",
                   "example": "2024-11-05T09:00:00Z"
                 },
@@ -177,7 +177,7 @@
         }
       }
     },
-    "/event/": {
+    "/events/": {
       "get": {
         "description": "Returns all the events available in the database",
         "responses": {
@@ -235,7 +235,7 @@
                   "example": [],
                   "items": {}
                 },
-                " ": {
+                "createdAt": {
                   "type": "string",
                   "example": "2024-11-01T12:00:00Z"
                 },
@@ -257,7 +257,7 @@
         }
       }
     },
-    "/event/{event_id}": {
+    "/events/{event_id}": {
       "get": {
         "description": "Returns an event with the given ID",
         "parameters": [
